@@ -1,0 +1,6 @@
+{
+  "appId": "com.sgpworld.sggolf",
+  "appName": "SG골프",
+  "webDir": "www",
+  "android": { "allowMixedContent": false }
+}

@@ -1,0 +1,430 @@
+<title>SG골프 코스 공략북 목업</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: 야디지북(코스 공략 수첩) 콘셉트. 설명 + 폰 목업이 화면별로 이어지는 카탈로그 */
+:root{
+  --bg:#F1F3EE; --paper:#FFFFFF; --ink:#16241C; --muted:#5E6C63; --line:#D6DDD5;
+  --fair:#6FAF72; --rough:#3E7D4A; --green:#1E5B3F; --green-2:#2F7A55; --sand:#E8D6A0; --water:#5B9BD5;
+  --flag:#E2A516; --red:#C8412B; --blue:#2B63B8; --chip:#E4EAE3; --screen:#F7F8F4; --phone:#0F1A13;
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-num:"Barlow Condensed","Arial Narrow",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1511; --paper:#16201A; --ink:#E5ECE7; --muted:#95A59B; --line:#2B3831;
+  --fair:#4F8F57; --rough:#2C5E37; --green:#5DBB8A; --green-2:#46A274; --sand:#B8A574; --water:#4A86C0;
+  --flag:#F0B832; --red:#EE6B55; --blue:#6E9DE8; --chip:#223028; --screen:#121B15; --phone:#000; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1511; --paper:#16201A; --ink:#E5ECE7; --muted:#95A59B; --line:#2B3831;
+  --fair:#4F8F57; --rough:#2C5E37; --green:#5DBB8A; --green-2:#46A274; --sand:#B8A574; --water:#4A86C0;
+  --flag:#F0B832; --red:#EE6B55; --blue:#6E9DE8; --chip:#223028; --screen:#121B15; --phone:#000; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;padding-inline:16px;padding-block:32px 64px}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.2;margin:0;text-wrap:balance}
+h2{font-size:22px;margin:0;text-wrap:balance}
+h3{font-size:16px;margin:0}
+p{margin:0}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--green-2);font-weight:700}
+.lead{color:var(--muted);font-size:16px;max-width:720px}
+header.top{display:flex;flex-direction:column;gap:12px}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+
+/* 데이터 현실 표 */
+.data{background:var(--paper);border:1px solid var(--line);border-radius:12px;overflow-x:auto}
+.data table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+.data th,.data td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.data th{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.data tr:last-child td{border-bottom:0}
+.st{display:inline-block;padding:2px 8px;border-radius:99px;font-size:12px;font-weight:700;white-space:nowrap}
+.st.ok{background:var(--green-2);color:#fff}
+.st.part{background:var(--flag);color:#16241C}
+.st.no{background:var(--red);color:#fff}
+
+section.screen{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:40px;align-items:start}
+section.screen:nth-of-type(even){grid-template-columns:320px minmax(0,1fr)}
+section.screen:nth-of-type(even) .desc{order:2}
+@media (max-width:760px){section.screen,section.screen:nth-of-type(even){grid-template-columns:minmax(0,1fr)}section.screen:nth-of-type(even) .desc{order:0}}
+.desc{display:flex;flex-direction:column;gap:14px;min-width:0}
+.desc .no{font-family:var(--f-num);font-size:15px;color:var(--green-2);font-weight:700;letter-spacing:.06em}
+.desc ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.desc .note{font-size:13.5px;color:var(--muted);border-left:3px solid var(--flag);padding-left:10px}
+
+.phone{width:100%;max-width:320px;margin:0 auto;background:var(--phone);border-radius:38px;padding:10px;box-shadow:0 20px 40px -20px rgba(0,0,0,.45)}
+.scr{background:var(--screen);border-radius:30px;overflow:hidden;height:620px;display:flex;flex-direction:column;font-size:13px}
+.sb{display:flex;justify-content:space-between;padding:10px 22px 4px;font-size:11px;font-weight:600;font-family:var(--f-num)}
+.appbar{display:flex;align-items:center;justify-content:space-between;padding:4px 16px 8px;gap:8px}
+.appbar b{font-size:16px}
+.appbar small{color:var(--muted);font-size:11px}
+.body{flex:1;overflow:hidden;padding:0 12px 10px;display:flex;flex-direction:column;gap:8px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:10px 12px}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.chip{display:inline-block;padding:3px 9px;border-radius:99px;background:var(--chip);font-size:11px;white-space:nowrap}
+.chip.on{background:var(--green-2);color:#fff}
+.chip.flag{background:var(--flag);color:#16241C}
+.btn{background:var(--green-2);color:#fff;border-radius:12px;padding:11px;text-align:center;font-weight:700}
+.btn.ghost{background:var(--chip);color:var(--ink)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.big{font-family:var(--f-num);font-weight:700;font-size:30px;line-height:1}
+.k{font-size:10.5px;color:var(--muted)}
+.tabbar{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);background:var(--paper);padding:8px 0 14px;font-size:10.5px;text-align:center;color:var(--muted)}
+.tabbar .on{color:var(--green-2);font-weight:700}
+.tabbar i{display:block;width:18px;height:18px;margin:0 auto 2px;border-radius:5px;background:currentColor;opacity:.8}
+.list .li{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);gap:8px}
+.list .li:last-child{border-bottom:0}
+svg.hole{width:100%;height:auto;display:block;border-radius:12px}
+svg text{font-family:var(--f-num);font-weight:700}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.fc{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.fc b{font-size:15px}
+.fc span{color:var(--muted);font-size:13.5px}
+.fc .st{align-self:flex-start}
+.phase{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.ph{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.ph ul{margin:0;padding-left:18px;font-size:14px}
+.ph .t{font-family:var(--f-num);font-size:14px;color:var(--green-2);font-weight:700;letter-spacing:.06em}
+.ask{background:var(--green);color:#fff;border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.ask p{opacity:.9}
+</style>
+
+<div class="wrap">
+<header class="top">
+  <div class="eyebrow">SG Golf 공략북 · 목업 v1</div>
+  <h1>전국 골프장 공략 수첩을 폰 하나에</h1>
+  <p class="lead">골프장마다 홀 공략법을 보고, 내 기록과 메모를 남기고, 라운드 중에는 GPS로 드라이버 거리와 그린까지 거리를 재요. 그린에서는 폰을 내려놓으면 공 위치의 경사 방향을 알려줘요. 아래 화면은 목업이고, 골프장 이름과 숫자는 모두 예시예요.</p>
+</header>
+
+<div class="stack" style="display:flex;flex-direction:column;gap:12px">
+  <h2>먼저 짚고 갈 것: 무료 데이터로 되는 것과 안 되는 것</h2>
+  <p class="lead">요청하신 기능이 전부 무료 데이터로 되는지 조사한 결과예요. 이 표가 앱 설계의 출발점이에요.</p>
+  <div class="data"><table>
+    <tr><th>필요한 것</th><th>무료 출처</th><th>상태</th><th>앱에서 해결하는 방법</th></tr>
+    <tr><td><b>전국 골프장 위치·위성 사진</b></td><td>브이월드 항공사진(국토교통부, 무료 인증키), Esri 위성, OpenStreetMap</td><td><span class="st ok">전국 가능</span></td><td>국내 골프장 약 900곳의 경계가 OSM에 있고, 항공사진으로 모든 홀을 볼 수 있어요.</td></tr>
+    <tr><td><b>홀 도면 (티·페어웨이·벙커·해저드·그린)</b></td><td>OpenStreetMap</td><td><span class="st part">일부만</span></td><td>조사해보니 국내는 홀 라인 597개(18홀 기준 약 30곳), 그린 1,216개만 등록돼 있어요. 나머지는 <b>위성 사진 위에 그리는 코스 편집기</b>로 채워요. 한 번 그리면 모든 사용자가 같이 써요.</td></tr>
+    <tr><td><b>홀별 공략법</b></td><td>공개된 무료 데이터 없음</td><td><span class="st part">직접 생성</span></td><td>① 도면에서 자동 계산한 공략(해저드 캐리, 레이업 거리) ② 사용자가 쓰고 추천하는 공략 ③ 내 기록에 맞춘 개인 공략. 골프장 홈페이지 공략 글은 저작권이 있어서 그대로 가져올 수 없어요.</td></tr>
+    <tr><td><b>티~그린 고저차</b></td><td>국토지리정보원 5m 수치표고모델(무료)</td><td><span class="st ok">가능</span></td><td>오르막·내리막 보정 거리("플레이 거리")를 계산해요. 5m 간격이라 홀 단위 고저차에는 충분해요.</td></tr>
+    <tr><td><b>그린 경사 (공 위치에서 어느 쪽이 높은지)</b></td><td>무료 데이터는 해상도 부족</td><td><span class="st part">센서로 해결</span></td><td>5m 표고로는 그린 전체 기울기만 보여요. 공 위치의 경사는 <b>폰을 그린에 내려놓고 기울기 센서로 측정</b>해요(0.1° 단위). 측정값이 쌓이면 그 그린의 경사 지도가 돼요.</td></tr>
+    <tr><td><b>드라이버 거리</b></td><td>휴대폰 GPS</td><td><span class="st ok">가능</span></td><td>친 자리와 공 있는 자리를 찍어요. 오차는 보통 3~8m예요.</td></tr>
+    <tr><td><b>그린 위에서 공~홀 거리</b></td><td>휴대폰 GPS</td><td><span class="st no">GPS로는 부정확</span></td><td>GPS 오차(3~8m)가 퍼트 거리와 비슷해서 쓸 수 없어요. <b>걸음 수 입력</b>이나 <b>AR 측정(카메라로 홀까지 재기, 오차 수 cm)</b>으로 재요. AR은 설치형 앱(APK/iOS)에서만 돼요.</td></tr>
+  </table></div>
+</div>
+
+<!-- 1 -->
+<section class="screen">
+  <div class="desc">
+    <div class="no">SCREEN 1 · 골프장 찾기</div>
+    <h2>전국 골프장 지도와 데이터 상태</h2>
+    <ul>
+      <li>지도나 이름으로 골프장을 찾아요. 내 주변 골프장은 GPS로 바로 보여줘요.</li>
+      <li>골프장마다 <b>데이터 상태</b>를 표시해요. <em>공략 완성</em>은 도면과 공략이 모두 있다는 뜻이고, <em>도면만</em>, <em>위성만</em>은 사용자 기여가 필요하다는 뜻이에요.</li>
+      <li>자주 가는 골프장을 즐겨찾기하고 <b>오프라인 저장</b>할 수 있어요. 산속이라 신호가 약해도 도면과 지도가 보여요.</li>
+      <li>하단 탭: <b>골프장 · 라운드 · 내 기록 · 설정</b></li>
+    </ul>
+  </div>
+  <div class="phone"><div class="scr">
+    <div class="sb"><span>06:40</span><span>5G 97%</span></div>
+    <div class="appbar"><b>골프장 찾기</b><small>전국 · 내 주변</small></div>
+    <div class="body">
+      <div class="card" style="padding:8px 12px;color:var(--muted)">골프장 이름, 지역 검색</div>
+      <svg class="hole" viewBox="0 0 280 150" role="img" aria-label="주변 골프장 지도 예시">
+        <rect width="280" height="150" fill="var(--rough)"/>
+        <path d="M0 110 C60 90 90 130 160 105 S250 80 280 95 V150 H0Z" fill="var(--fair)" opacity=".5"/>
+        <path d="M30 0 C60 40 40 70 90 90" stroke="#ffffff" stroke-opacity=".35" stroke-width="3" fill="none"/>
+        <circle cx="70" cy="50" r="9" fill="var(--flag)"/><text x="70" y="54" text-anchor="middle" font-size="10" fill="#16241C">A</text>
+        <circle cx="175" cy="70" r="9" fill="#fff"/><text x="175" y="74" text-anchor="middle" font-size="10" fill="#16241C">B</text>
+        <circle cx="230" cy="30" r="9" fill="#fff"/><text x="230" y="34" text-anchor="middle" font-size="10" fill="#16241C">C</text>
+        <circle cx="130" cy="120" r="6" fill="#2B7FFF" stroke="#fff" stroke-width="3"/>
+      </svg>
+      <div class="card list">
+        <div class="li"><span><b>A · 레이크힐스 CC</b><br><span class="k">경기 용인 · 27홀 · 12km</span></span><span class="chip on">공략 완성</span></div>
+        <div class="li"><span><b>B · 파인밸리 GC</b><br><span class="k">경기 이천 · 18홀 · 18km</span></span><span class="chip flag">도면만</span></div>
+        <div class="li"><span><b>C · 선셋힐 CC</b><br><span class="k">경기 여주 · 18홀 · 25km</span></span><span class="chip">위성만</span></div>
+      </div>
+      <div class="card row"><span><b>즐겨찾기 3곳</b><br><span class="k">오프라인 저장 완료</span></span><span class="chip on">↓ 저장됨</span></div>
+    </div>
+    <div class="tabbar"><div class="on"><i></i>골프장</div><div><i></i>라운드</div><div><i></i>내 기록</div><div><i></i>설정</div></div>
+  </div></div>
+</section>
+
+<!-- 2 -->
+<section class="screen">
+  <div class="desc">
+    <div class="no">SCREEN 2 · 홀 공략 (핵심)</div>
+    <h2>야디지북처럼 보는 홀 공략</h2>
+    <ul>
+      <li><b>홀 도면:</b> 티, 페어웨이, 벙커, 해저드, 그린과 주요 지점까지의 거리를 그려요.</li>
+      <li><b>자동 공략:</b> 도면에서 계산해요. 예) "우측 벙커 캐리 205m, 넘기지 못하면 벙커 왼쪽 끝을 겨냥"</li>
+      <li><b>내 거리 맞춤:</b> 내 드라이버 평균(예: 215m)과 비교해서 "벙커까지 닿아요, 3번 우드 추천"처럼 개인 공략을 보여줘요.</li>
+      <li><b>고저차:</b> 티와 그린의 높이 차이로 "+8m 오르막, 약 8m 길게 보세요"를 계산해요.</li>
+      <li><b>사용자 공략:</b> 다른 골퍼가 쓴 팁을 추천순으로 보여줘요. 예) "그린 뒤쪽은 내리막 퍼트라 짧게"</li>
+    </ul>
+  </div>
+  <div class="phone"><div class="scr">
+    <div class="sb"><span>21:10</span><span>Wi-Fi 90%</span></div>
+    <div class="appbar"><div><small>레이크힐스 CC · 힐 코스</small><br><b>4번 홀 · PAR 4 · 368m</b></div><span class="chip">HDCP 2</span></div>
+    <div class="body">
+      <svg class="hole" viewBox="0 0 280 250" role="img" aria-label="4번 홀 도면 예시">
+        <rect width="280" height="250" fill="var(--rough)"/>
+        <path d="M120 238 C115 190 110 150 125 115 C140 80 170 60 175 35 L205 40 C200 70 170 95 160 125 C150 160 155 200 160 238Z" fill="var(--fair)"/>
+        <ellipse cx="190" cy="30" rx="26" ry="18" fill="#8CCB8E"/>
+        <circle cx="194" cy="27" r="2.5" fill="#fff"/><line x1="194" y1="27" x2="194" y2="12" stroke="#fff" stroke-width="1.5"/><path d="M194 12 L204 15 L194 18Z" fill="var(--flag)"/>
+        <ellipse cx="170" cy="110" rx="16" ry="9" fill="var(--sand)"/>
+        <ellipse cx="160" cy="48" rx="10" ry="7" fill="var(--sand)"/>
+        <path d="M60 60 C75 50 95 70 90 95 C85 115 55 110 50 90 C47 78 50 66 60 60Z" fill="var(--water)"/>
+        <rect x="130" y="228" width="20" height="10" rx="2" fill="#fff" opacity=".85"/>
+        <path d="M140 228 L135 128" stroke="#fff" stroke-dasharray="4 4" stroke-width="1.5"/>
+        <circle cx="135" cy="128" r="4" fill="var(--flag)" stroke="#fff" stroke-width="1.5"/>
+        <path d="M135 128 L190 32" stroke="var(--flag)" stroke-dasharray="4 4" stroke-width="1.5"/>
+        <text x="186" y="116" font-size="11" fill="#fff">캐리 205</text>
+        <text x="96" y="176" font-size="12" fill="#fff">티샷 210</text>
+        <text x="168" y="86" font-size="12" fill="#fff">남은 158</text>
+        <text x="30" y="60" font-size="11" fill="#fff">해저드</text>
+        <text x="215" y="20" font-size="11" fill="#fff">+8m ↑</text>
+      </svg>
+      <div class="card">
+        <div class="row"><b>이렇게 치세요</b><span class="chip on">내 거리 맞춤</span></div>
+        <p style="margin-top:4px">우측 벙커까지 캐리 <b class="num">205m</b>. 드라이버 평균 <b class="num">215m</b>라 벙커에 들어갈 수 있어요. 벙커 왼쪽 끝을 겨냥하거나 <b>3번 우드(195m)</b>로 끊어가세요. 오르막 8m라 세컨드는 <b class="num">166m</b>로 보세요.</p>
+      </div>
+      <div class="card">
+        <div class="row"><b>골퍼 팁 12</b><span class="k">추천순</span></div>
+        <p style="margin-top:4px">"그린이 뒤에서 앞으로 기울어서 핀 뒤로 넘기면 내리막 퍼트예요." <span class="k">👍 38</span></p>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 3 -->
+<section class="screen">
+  <div class="desc">
+    <div class="no">SCREEN 3 · 라운드 중 GPS</div>
+    <h2>지금 서 있는 곳에서 필요한 거리만</h2>
+    <ul>
+      <li>그린 <b>앞 · 중앙 · 뒤</b>까지 남은 거리와 해저드·벙커까지 거리(캐리)를 실시간으로 보여줘요.</li>
+      <li><b>플레이 거리:</b> 고저차를 반영한 체감 거리예요. 무료 날씨 API로 바람도 반영할 수 있어요.</li>
+      <li><b>오늘의 핀 위치:</b> 그린 도면에서 핀을 탭하면 핀까지 거리로 바뀌어요.</li>
+      <li>지도 아무 곳이나 탭하면 레이저 거리측정기처럼 "나 → 지점 → 핀" 거리를 보여줘요.</li>
+      <li>홀에 도착하면 자동으로 다음 홀로 넘어가요(자동 홀 감지).</li>
+    </ul>
+  </div>
+  <div class="phone"><div class="scr">
+    <div class="sb"><span>09:12</span><span>LTE 81%</span></div>
+    <div class="appbar"><b>4번 홀 · PAR 4</b><small class="num">GPS ±4m</small></div>
+    <div class="body">
+      <div class="card" style="background:var(--green);color:#fff;border:0">
+        <div class="row"><span style="opacity:.8">그린 중앙</span><span style="opacity:.8">플레이 거리</span></div>
+        <div class="row"><span class="big" style="font-size:52px">152<small style="font-size:18px">m</small></span><span class="big" style="color:var(--flag)">160<small style="font-size:14px">m</small></span></div>
+        <div class="row num" style="opacity:.9;margin-top:4px"><span>앞 141</span><span>핀 149</span><span>뒤 165</span></div>
+      </div>
+      <div class="card">
+        <div class="row"><span class="k">고저차</span><b class="num">+6m 오르막</b></div>
+        <div class="row"><span class="k">바람</span><b class="num">맞바람 3m/s (+4m)</b></div>
+        <div class="row"><span class="k">추천 클럽</span><b>6번 아이언 <span class="muted num">(평균 158m)</span></b></div>
+      </div>
+      <div class="card list">
+        <div class="li"><span>그린 앞 벙커 넘기기</span><b class="num">138m</b></div>
+        <div class="li"><span>그린 왼쪽 해저드 시작</span><b class="num">120m</b></div>
+        <div class="li"><span>레이업 (100m 남기기)</span><b class="num">52m</b></div>
+      </div>
+      <div class="grid2"><div class="btn ghost">지도 보기</div><div class="btn">샷 기록</div></div>
+    </div>
+    <div class="tabbar"><div><i></i>골프장</div><div class="on"><i></i>라운드</div><div><i></i>내 기록</div><div><i></i>설정</div></div>
+  </div></div>
+</section>
+
+<!-- 4 -->
+<section class="screen">
+  <div class="desc">
+    <div class="no">SCREEN 4 · 드라이버 거리 측정</div>
+    <h2>친 자리에서 한 번, 공 앞에서 한 번</h2>
+    <ul>
+      <li>티에서 <b>"샷 시작"</b>, 공 있는 곳에서 <b>"여기 도착"</b>을 누르면 거리가 나와요.</li>
+      <li>클럽을 고르면 저장되고, <b>클럽별 평균·최대 비거리표</b>가 자동으로 만들어져요.</li>
+      <li>페어웨이 / 좌 / 우 결과도 같이 남겨서 <b>티샷 탄착군</b>(어느 쪽으로 많이 휘는지)을 지도에 그려줘요.</li>
+      <li>미스샷(뒤땅, 탑볼)은 평균에서 빼는 옵션이 있어요.</li>
+    </ul>
+    <p class="note">GPS 오차가 3~8m라 한 번의 측정은 대략값이에요. 여러 번 쌓이면 평균은 꽤 정확해져요.</p>
+  </div>
+  <div class="phone"><div class="scr">
+    <div class="sb"><span>09:31</span><span>LTE 78%</span></div>
+    <div class="appbar"><b>샷 측정</b><small>5번 홀 티샷</small></div>
+    <div class="body">
+      <div class="card" style="text-align:center;padding:18px 12px">
+        <div class="k">드라이버</div>
+        <div class="big" style="font-size:64px;color:var(--green-2)">227<small style="font-size:22px">m</small></div>
+        <div class="k">친 자리 → 지금 위치 · 오차 ±5m</div>
+      </div>
+      <div class="card"><div class="k" style="margin-bottom:6px">결과</div>
+        <div class="grid3" style="text-align:center"><span class="chip">왼쪽</span><span class="chip on">페어웨이</span><span class="chip">오른쪽</span></div></div>
+      <div class="btn">저장하기</div>
+      <div class="card">
+        <div class="row"><b>드라이버 기록</b><span class="k">최근 30샷</span></div>
+        <svg viewBox="0 0 280 90" style="width:100%;margin-top:6px" role="img" aria-label="티샷 탄착군 예시">
+          <rect x="95" y="0" width="90" height="90" rx="10" fill="var(--fair)" opacity=".35"/>
+          <line x1="140" y1="0" x2="140" y2="90" stroke="var(--muted)" stroke-dasharray="3 4"/>
+          <g fill="var(--green-2)"><circle cx="130" cy="30" r="4"/><circle cx="150" cy="40" r="4"/><circle cx="160" cy="22" r="4"/><circle cx="175" cy="50" r="4"/><circle cx="190" cy="35" r="4"/><circle cx="205" cy="45" r="4"/><circle cx="145" cy="58" r="4"/><circle cx="120" cy="45" r="4"/></g>
+          <text x="210" y="20" font-size="11" fill="var(--red)">오른쪽 38%</text>
+        </svg>
+        <div class="row num" style="margin-top:6px"><span>평균 <b>218m</b></span><span>최대 <b>241m</b></span><span>FW <b>47%</b></span></div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 5 -->
+<section class="screen">
+  <div class="desc">
+    <div class="no">SCREEN 5 · 그린 리딩</div>
+    <h2>폰을 내려놓으면 높은 쪽을 알려줘요</h2>
+    <ul>
+      <li><b>경사 측정:</b> 공 옆에 폰을 평평하게 내려놓으면 기울기 센서로 <b>높은 방향과 경사도(%)</b>를 재요.</li>
+      <li><b>홀까지 거리:</b> 걸음 수를 입력하거나(1걸음 ≈ 0.8m, 본인 보폭으로 보정), 설치형 앱에서는 <b>AR로 카메라를 홀에 겨눠</b> 재요.</li>
+      <li><b>브레이크 안내:</b> 경사와 거리로 "홀 왼쪽 약 한 컵 보고 치세요" 같은 참고값을 보여줘요.</li>
+      <li><b>그린 경사 지도:</b> 측정값이 모이면 그린 위에 화살표로 경사 지도를 만들어요. 사용자가 많을수록 정확해져요.</li>
+      <li>무료 5m 지형 데이터로 <b>그린 전체가 어느 쪽으로 기울었는지</b>는 처음부터 보여줘요.</li>
+    </ul>
+    <p class="note">정식 대회에서는 골프 규칙(4.3)상 라운드 중 경사를 재는 기기를 쓸 수 없어요. 친선 라운드와 연습용으로 안내할게요.</p>
+  </div>
+  <div class="phone"><div class="scr">
+    <div class="sb"><span>09:48</span><span>LTE 74%</span></div>
+    <div class="appbar"><b>4번 홀 그린</b><small>경사 측정</small></div>
+    <div class="body">
+      <svg class="hole" viewBox="0 0 280 230" role="img" aria-label="그린 경사 예시">
+        <rect width="280" height="230" fill="var(--rough)"/>
+        <ellipse cx="140" cy="115" rx="120" ry="95" fill="#8CCB8E"/>
+        <g fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.2">
+          <path d="M40 80 C100 55 180 50 245 75"/><path d="M30 120 C100 95 190 90 255 115"/><path d="M40 160 C100 140 190 135 245 155"/>
+        </g>
+        <g stroke="#fff" stroke-width="1.6" fill="#fff" opacity=".75">
+          <line x1="80" y1="70" x2="86" y2="92"/><path d="M86 92 l-5 -4 l7 -1z"/>
+          <line x1="200" y1="65" x2="196" y2="88"/><path d="M196 88 l-4 -5 l7 1z"/>
+          <line x1="140" y1="175" x2="140" y2="198"/><path d="M140 198 l-4 -6 h8z"/>
+        </g>
+        <circle cx="165" cy="70" r="3" fill="#16241C"/><line x1="165" y1="70" x2="165" y2="44" stroke="#fff" stroke-width="1.5"/><path d="M165 44 l12 4 l-12 4z" fill="var(--flag)"/>
+        <circle cx="105" cy="150" r="6" fill="#fff" stroke="#16241C"/>
+        <path d="M105 150 C95 115 130 80 163 72" stroke="var(--flag)" stroke-width="2.5" fill="none" stroke-dasharray="5 4"/>
+        <g transform="translate(105 150)"><circle r="22" fill="none" stroke="var(--red)" stroke-width="2"/><path d="M0 -30 l-6 10 h12z" transform="rotate(-35)" fill="var(--red)"/></g>
+        <text x="20" y="220" font-size="11" fill="#fff">화살표: 내려가는 방향</text>
+      </svg>
+      <div class="card">
+        <div class="row"><span class="k">공 위치 경사</span><b class="num" style="color:var(--red)">왼쪽 앞이 높음 · 2.1%</b></div>
+        <div class="row"><span class="k">홀까지</span><b class="num">7걸음 ≈ 5.6m · 오르막</b></div>
+        <div class="row"><span class="k">참고</span><b>홀 왼쪽 컵 1개 보고, 조금 세게</b></div>
+      </div>
+      <div class="grid2"><div class="btn ghost">다시 측정</div><div class="btn">퍼트 기록</div></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- 6 -->
+<section class="screen">
+  <div class="desc">
+    <div class="no">SCREEN 6 · 내 기록지 · 공략 노트</div>
+    <h2>홀마다 나만의 공략 노트</h2>
+    <ul>
+      <li><b>스코어 기록:</b> 타수, 퍼트, 티샷 방향, 벌타를 홀마다 남겨요. 동반자 스코어도 함께 적을 수 있어요.</li>
+      <li><b>홀 노트:</b> "여기는 무조건 왼쪽", "그린 뒤 OB" 같은 메모와 사진을 홀에 붙여요. 다음에 이 홀에 오면 먼저 띄워줘요.</li>
+      <li><b>이 홀 내 기록:</b> 같은 홀을 여러 번 쳤다면 평균 타수와 가장 많이 한 실수를 보여줘요.</li>
+      <li>내 노트를 <b>공개 공략</b>으로 공유할지 선택할 수 있어요.</li>
+    </ul>
+  </div>
+  <div class="phone"><div class="scr">
+    <div class="sb"><span>20:05</span><span>Wi-Fi 88%</span></div>
+    <div class="appbar"><div><small>레이크힐스 · 힐 코스</small><br><b>4번 홀 내 기록</b></div><span class="chip on">6번 쳤어요</span></div>
+    <div class="body">
+      <div class="grid3">
+        <div class="card" style="padding:8px"><div class="k">평균</div><div class="big">5.2</div></div>
+        <div class="card" style="padding:8px"><div class="k">베스트</div><div class="big">4</div></div>
+        <div class="card" style="padding:8px"><div class="k">FW</div><div class="big">33%</div></div>
+      </div>
+      <div class="card">
+        <div class="row"><b>자주 한 실수</b></div>
+        <p style="margin-top:4px">티샷 오른쪽 벙커 <b>3번</b> · 3퍼트 <b>2번</b></p>
+      </div>
+      <div class="card">
+        <div class="row"><b>내 노트</b><span class="k">8/24</span></div>
+        <p style="margin-top:4px">드라이버 잡지 말 것. 3번 우드로 왼쪽 페어웨이 → 7번 아이언. 그린 오른쪽 뒤로 넘기면 내리막 퍼트.</p>
+        <div class="row" style="margin-top:8px;justify-content:flex-start;gap:6px"><span class="chip">📷 사진 2</span><span class="chip">🔒 나만 보기</span></div>
+      </div>
+      <div class="card list">
+        <div class="li"><span>9/21</span><span class="num">4 (파) · 퍼트 2</span></div>
+        <div class="li"><span>8/24</span><span class="num">6 (더블) · 벙커</span></div>
+        <div class="li"><span>7/13</span><span class="num">5 (보기) · 3퍼트</span></div>
+      </div>
+    </div>
+    <div class="tabbar"><div><i></i>골프장</div><div><i></i>라운드</div><div class="on"><i></i>내 기록</div><div><i></i>설정</div></div>
+  </div></div>
+</section>
+
+<!-- 7 -->
+<section class="screen">
+  <div class="desc">
+    <div class="no">SCREEN 7 · 코스 편집기</div>
+    <h2>도면이 없는 골프장은 위성 사진 위에 그려요</h2>
+    <ul>
+      <li>위성 사진 위에서 <b>티 → 그린 중앙</b>을 탭하면 홀이 만들어져요. 벙커와 해저드는 둘레를 찍어서 그려요.</li>
+      <li>18홀 한 곳에 10~15분 정도 걸려요. 라운드 전날 집에서 해두면 돼요.</li>
+      <li>OpenStreetMap에 이미 있는 골프장은 자동으로 채워져서 확인만 하면 돼요.</li>
+      <li>만든 도면은 <b>다른 사용자와 공유</b>되어서, 한 사람이 그리면 모두가 쓸 수 있어요.</li>
+    </ul>
+  </div>
+  <div class="phone"><div class="scr">
+    <div class="sb"><span>22:15</span><span>Wi-Fi 92%</span></div>
+    <div class="appbar"><b>선셋힐 CC 도면 그리기</b><small>7/18</small></div>
+    <div class="body">
+      <svg class="hole" viewBox="0 0 280 300" role="img" aria-label="위성 사진 위 코스 편집 예시">
+        <rect width="280" height="300" fill="#2F4F34"/>
+        <path d="M0 0 H280 V300 H0Z" fill="url(#tex)"/>
+        <defs><pattern id="tex" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#33573A"/><circle cx="3" cy="4" r="2" fill="#2A4A30"/><circle cx="9" cy="9" r="2.5" fill="#3A6242"/></pattern></defs>
+        <path d="M100 290 C95 220 120 160 150 110 C170 80 175 60 180 40 L210 45 C205 80 190 110 175 140 C150 190 140 240 145 290Z" fill="#5E9A62" opacity=".85"/>
+        <ellipse cx="195" cy="38" rx="24" ry="17" fill="#8CCB8E" stroke="var(--flag)" stroke-width="2" stroke-dasharray="4 3"/>
+        <ellipse cx="160" cy="165" rx="14" ry="8" fill="var(--sand)" stroke="#fff" stroke-width="1.5"/>
+        <circle cx="120" cy="280" r="7" fill="#fff" stroke="var(--green)" stroke-width="3"/>
+        <line x1="120" y1="280" x2="195" y2="38" stroke="#fff" stroke-width="2" stroke-dasharray="6 5"/>
+        <circle cx="195" cy="38" r="7" fill="var(--flag)" stroke="#fff" stroke-width="2"/>
+        <text x="130" y="150" font-size="13" fill="#fff">352m</text>
+      </svg>
+      <div class="card"><div class="k" style="margin-bottom:6px">그리기 도구</div>
+        <div class="row" style="flex-wrap:wrap;justify-content:flex-start;gap:5px"><span class="chip">티</span><span class="chip on">그린</span><span class="chip">벙커</span><span class="chip">해저드</span><span class="chip">OB 선</span><span class="chip">↶ 되돌리기</span></div></div>
+      <div class="grid2"><div class="btn ghost">← 6번 홀</div><div class="btn">저장 · 8번 홀 →</div></div>
+    </div>
+  </div></div>
+</section>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+  <h2>제가 추가로 넣을 수 있는 기능</h2>
+  <p class="lead">요청하신 기능 외에 공략 앱에 잘 맞는 기능들이에요. 난이도와 필요한 것을 같이 적었어요.</p>
+  <div class="feat">
+    <div class="fc"><span class="st ok">무료 · 쉬움</span><b>스코어카드와 동반자 내기 정산</b><span>앞서 만들던 스코어·스트로크·스킨스·배판 정산 기능을 기록지에 합쳐요.</span></div>
+    <div class="fc"><span class="st ok">무료 · 쉬움</span><b>약점 통계</b><span>FIR, GIR, 3퍼트, 파3·4·5별 평균, 간이 핸디캡. "이 골프장에서 내가 잘 무너지는 홀" 리포트도 만들어요.</span></div>
+    <div class="fc"><span class="st ok">무료 · 쉬움</span><b>바람·날씨 반영 거리</b><span>무료 날씨 API(Open-Meteo)로 풍향·풍속을 받아 체감 거리에 반영해요.</span></div>
+    <div class="fc"><span class="st ok">무료 · 보통</span><b>라운드 전 코스 브리핑</b><span>전날 밤에 18홀 공략을 한 장씩 넘겨보는 모드예요. 내 노트와 위험 홀을 요약해줘요.</span></div>
+    <div class="fc"><span class="st ok">무료 · 보통</span><b>오프라인 코스 다운로드</b><span>즐겨찾기한 골프장의 도면, 위성 타일, 공략을 폰에 저장해요.</span></div>
+    <div class="fc"><span class="st ok">무료 · 보통</span><b>자동 홀 감지 · 샷 자동 기록</b><span>위치로 지금 몇 번 홀인지 알아채고, 한 자리에 멈췄다가 이동하면 샷 후보로 기록해요.</span></div>
+    <div class="fc"><span class="st part">서버 필요</span><b>공략 공유 커뮤니티</b><span>사용자 도면·공략·그린 경사를 모으려면 서버가 필요해요. Supabase나 Firebase 무료 요금제로 시작할 수 있어요.</span></div>
+    <div class="fc"><span class="st part">설치형 앱 필요</span><b>AR 퍼트 거리 측정</b><span>카메라로 공과 홀을 찍어 cm 단위로 재요. APK/iOS 앱에서만 되고, 웹 URL에서는 안 돼요.</span></div>
+    <div class="fc"><span class="st part">설치형 앱 필요</span><b>음성 캐디</b><span>"남은 거리 152, 6번 아이언" 식으로 읽어줘요. 이어폰만 끼고 폰은 주머니에 넣어둘 수 있어요.</span></div>
+    <div class="fc"><span class="st part">추가 개발</span><b>스마트워치 거리 표시</b><span>애플워치·갤럭시워치에 그린 거리를 띄워요. 워치 앱을 따로 만들어야 해요.</span></div>
+    <div class="fc"><span class="st no">유료 데이터</span><b>전국 공식 코스 도면</b><span>모든 골프장의 정밀 도면을 처음부터 갖추려면 iGolf 같은 유료 코스 데이터를 계약해야 해요.</span></div>
+    <div class="fc"><span class="st no">연구 단계</span><b>위성 사진 자동 도면 인식</b><span>AI로 항공사진에서 그린·벙커·페어웨이를 자동으로 따내요. 가능은 하지만 학습 데이터와 시간이 많이 들어요.</span></div>
+  </div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:14px">
+  <h2>만드는 순서 제안</h2>
+  <div class="phase">
+    <div class="ph"><div class="t">1단계 · 혼자 쓰는 공략북</div><ul>
+      <li>골프장 검색 (OSM + 위성 지도)</li><li>OSM 도면 자동 불러오기 + 코스 편집기</li><li>홀 공략 자동 계산 · 고저차</li><li>GPS 거리 · 드라이버 측정 · 비거리표</li><li>스코어 기록지 · 홀 노트 · 통계</li><li>폰 센서 그린 경사 측정 · 걸음 거리</li><li>URL(PWA) + 아이폰 홈 화면 + APK</li></ul></div>
+    <div class="ph"><div class="t">2단계 · 같이 쓰는 공략북</div><ul>
+      <li>무료 서버 연결 (계정, 공유)</li><li>사용자 도면·공략·그린 경사 지도 공유</li><li>추천·신고</li><li>오프라인 코스 다운로드</li></ul></div>
+    <div class="ph"><div class="t">3단계 · 설치형 앱 강화</div><ul>
+      <li>AR 퍼트 거리</li><li>음성 캐디</li><li>스마트워치</li><li>유료 코스 데이터 연동 검토</li></ul></div>
+  </div>
+</div>
+
+<div class="ask">
+  <h2>확인 부탁드려요</h2>
+  <p>화면 구성과 기능 목록을 보시고 빼거나 더할 것을 알려주세요. OK 해주시면 1단계부터 만들게요.</p>
+</div>
+</div>
